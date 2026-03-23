@@ -1,0 +1,66 @@
+{
+  "name": "model-dumper",
+  "version": "0.9.0",
+  "description": "Dump and analyze OpenClaw model interactions - track conversation rounds, prompts, responses, and timing statistics",
+  "authors": ["OpenClaw User"],
+  "license": "MIT",
+  "handlers": {
+    "analyze": {
+      "description": "Analyze session and show statistics",
+      "params": {
+        "session-id": {"type": "string", "description": "Session ID to analyze (optional, defaults to latest)"}
+      },
+      "exe": "scripts/model-dumper",
+      "args": ["analyze", "{session-id}"]
+    },
+    "dump": {
+      "description": "Dump complete session details",
+      "params": {
+        "session-id": {"type": "string", "description": "Session ID to dump (optional, defaults to latest)"},
+        "format": {"type": "string", "description": "Output format (json, markdown, text)"}
+      },
+      "exe": "scripts/model-dumper",
+      "args": ["dump", "{session-id}", "--format", "{format}"]
+    },
+    "rounds": {
+      "description": "Show round count only",
+      "params": {
+        "session-id": {"type": "string", "description": "Session ID (optional, defaults to latest)"}
+      },
+      "exe": "scripts/model-dumper",
+      "args": ["rounds", "{session-id}"]
+    },
+    "prompts": {
+      "description": "Show all prompts sent to model",
+      "params": {
+        "session-id": {"type": "string", "description": "Session ID (optional, defaults to latest)"}
+      },
+      "exe": "scripts/model-dumper",
+      "args": ["prompts", "{session-id}"]
+    },
+    "outputs": {
+      "description": "Show all model outputs",
+      "params": {
+        "session-id": {"type": "string", "description": "Session ID (optional, defaults to latest)"}
+      },
+      "exe": "scripts/model-dumper",
+      "args": ["outputs", "{session-id}"]
+    },
+    "latest": {
+      "description": "Show latest session ID",
+      "exe": "scripts/model-dumper",
+      "args": ["latest"]
+    },
+    "export": {
+      "description": "Export complete model I/O to JSONL file",
+      "params": {
+        "session-id": {"type": "string", "description": "Session ID (optional, defaults to latest)"},
+        "output": {"type": "string", "description": "Output file path (optional)"}
+      },
+      "exe": "scripts/model-dumper",
+      "args": ["export", "{session-id}", "{output}"]
+    }
+  },
+  "tags": ["utilities", "analysis", "debugging", "model"],
+  "requires": {}
+}
