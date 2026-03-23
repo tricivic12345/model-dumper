@@ -294,6 +294,74 @@ MIT License - 详见 [LICENSE](LICENSE) 文件
 
 ---
 
+## 📚 版本历史与可获取性
+
+### 当前版本
+
+- **最新版本**: v0.9.0 (2026-03-23)
+- **主分支**: `main`
+- **推荐安装方式**: 克隆最新版本
+
+### 历史版本
+
+所有历史版本都已通过 Git tag 保存，你可以 checkout 任意历史版本：
+
+```bash
+# 克隆仓库
+git clone https://github.com/tricivic12345/model-dumper
+cd model-dumper
+
+# 查看所有版本标签
+git tag -l
+
+# 切换到某个历史版本（例如 v0.8）
+git checkout v0.8.0
+
+# 使用该版本
+./scripts/model-dumper analyze
+```
+
+**可用版本标签**:
+- `v0.9.0` - 修复 export-simple 数据不完整问题（当前）
+- `v0.8.0` - 添加时间指标统计（TTFT/TPOT）
+- `v0.7.0` - 修复 export-simple token counts 为 0 的问题
+- `v0.6.0` - 修复 token-export 输出 0 API calls 的问题
+- `v0.5.0` - 增强 token-stats 系统提示词分解
+- `v0.4.0` - JSONL 导出格式升级（完整消息历史）
+- `v0.3.0` - 更新 model-intercept 插件（捕获完整 system prompt）
+- `v0.2.0` - 新增 prompt-breakdown 功能
+- `v0.1.0` - 初始版本
+
+详细版本变更内容请参阅 [CHANGELOG.md](CHANGELOG.md)。
+
+### 版本选择建议
+
+| 版本 | 适用场景 | 推荐度 |
+|------|---------|--------|
+| v0.9.0+ | 需要完整的 export-simple 数据 | ✅ 最新 |
+| v0.8.0+ | 需要时间指标统计（TPOT） | ✅ |
+| v0.7.0+ | 修复了 export-simple token 统计 | ✅ |
+| v0.6.0+ | 修复了 token-export 导出问题 | ✅ |
+| v0.5.0+ | 需要系统提示词分解 | ✅ |
+| < v0.5.0 | 旧版本（不建议） | ⚠️ |
+
+### 版本管理
+
+我们使用 **Git tag** 管理版本，每个 tag 对应一个发布版本：
+
+```bash
+# 查看版本差异
+git log --oneline --graph --all
+
+# 比较两个版本
+git diff v0.8.0 v0.9.0
+
+# 查看某个 tag 的详细信息
+git show v0.9.0
+```
+
+---
+
 **维护者**: [tricivic12345](https://github.com/tricivic12345)
 **文档版本**: 1.0.0
 **最后更新**: 2026-03-23
